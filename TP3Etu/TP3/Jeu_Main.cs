@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+//Test, si je reste ça marche
 
 namespace TP3
 {
@@ -105,10 +106,9 @@ namespace TP3
     }
 
     #endregion
-
   }
 
-  // i did a thing
+
 
 
 
