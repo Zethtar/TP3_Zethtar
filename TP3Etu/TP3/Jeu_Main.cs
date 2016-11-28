@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-//Test, si je reste ça marche passssssssssssssssssssssss
 
 namespace TP3
 {
@@ -36,8 +35,7 @@ namespace TP3
     PictureBox[,] toutesImagesVisuelles = null;
     
     /// <summary>
-    /// Gestionnaire de l'événement se produisant lors du premier affichage 
-    /// du formulaire principal.
+    /// L'événement de départ servant à l'initialisation de l'affichage et l'appel des fonctions.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
@@ -45,9 +43,14 @@ namespace TP3
     {
       // Ne pas oublier de mettre en place les valeurs nécessaires à une partie.
       ExecuterTestsUnitaires();
-      InitialiserSurfaceDeJeu(20,10);
+      InitialiserSurfaceDeJeu(NB_LIGNE, NB_COLONNE);
     }
 
+    /// <summary>
+    /// Initialiser la surface du jeu en créant le tableau 2D servant de plateau de jeu.
+    /// </summary>
+    /// <param name="nbLignes">Nombre de lignes horizontales</param>
+    /// <param name="nbCols">Nombre de lignes verticales</param>
     private void InitialiserSurfaceDeJeu(int nbLignes, int nbCols)
     {
       // Création d'une surface de jeu 10 colonnes x 20 lignes
@@ -83,7 +86,7 @@ namespace TP3
 
 
 
-    #region Code à développer
+    #region Tests Unitaires
     /// <summary>
     /// Faites ici les appels requis pour vos tests unitaires.
     /// </summary>
