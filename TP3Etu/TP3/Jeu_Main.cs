@@ -6,6 +6,24 @@ namespace TP3
 {
   public partial class frm_Jeu_Main : Form
   {
+    const int NB_LIGNE = 20;
+    const int NB_COLONNE = 10;
+
+    enum TypeBloc
+    {
+      None,
+      Gele,
+      Carre,
+      Ligne,
+      T,
+      J,
+      L,
+      S,
+      Z
+    }
+
+    TypeBloc[,] tableauDeType = new TypeBloc[NB_LIGNE, NB_COLONNE];
+
     public frm_Jeu_Main( )
     {
       InitializeComponent( );
@@ -61,7 +79,6 @@ namespace TP3
     }
     #endregion
 
- //Test pour voir si tu vois...
 
 
 
@@ -90,7 +107,6 @@ namespace TP3
     #endregion
 
   }
-  //1 try of the day
 
 
 
