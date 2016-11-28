@@ -9,6 +9,17 @@ namespace TP3
     const int NB_LIGNE = 20;
     const int NB_COLONNE = 10;
 
+    // Tableau contenant les types des cases
+    TypeBloc[,] tableauDeType = new TypeBloc[NB_LIGNE, NB_COLONNE];
+
+    // Tableaux contenant les positions courantes des blocs à placer
+    int[] blocActifY = new int[4];
+    int[] blocActifX = new int[4];
+
+    // Taleaux contenant les positions courantes du bloc:
+    int colonneCourante = 0;
+    int ligneCourante = 0;
+
     enum TypeBloc
     {
       None,
@@ -21,8 +32,19 @@ namespace TP3
       S,
       Z
     }
+    Color[] toutesLesCouleurs = new Color[9]
+    {
+      Color.Black,
+      Color.Azure,
+      Color.Green,
+      Color.Orange,
+      Color.Navy,
+      Color.Red,
+      Color.Peru, // "L"
+      Color.Pink,
+      Color.PeachPuff
+    };
 
-    TypeBloc[,] tableauDeType = new TypeBloc[NB_LIGNE, NB_COLONNE];
 
     public frm_Jeu_Main( )
     {
@@ -33,6 +55,7 @@ namespace TP3
     
     // Représentation visuelles du jeu en mémoire.
     PictureBox[,] toutesImagesVisuelles = null;
+    
     
     /// <summary>
     /// L'événement de départ servant à l'initialisation de l'affichage et l'appel des fonctions.
@@ -80,11 +103,72 @@ namespace TP3
           tableauDeJeu.Controls.Add(newPictureBox, j, i);
         }
       }
+      // **Fonction temporaire initialisant le tableau de Types à NONE:
+      for (int i = 0; i < tableauDeType.GetLength(0); i++)
+      {
+        for (int j = 0; j < tableauDeType.GetLength(1); j++)
+        {
+          tableauDeType[i, j] = TypeBloc.None;
+        }
+      }
+      // Test des formes **À CHANGER**
+      AfficherCaree(blocActifY, blocActifX, colonneCourante, ligneCourante);
     }
     #endregion
 
-    #region Samuel Masson
+    // Generer un carré: cette fonction sera modifiée...
+    
 
+    #region Samuel Masson
+    // Fonction qui crée un carrée:
+    void AfficherCaree(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    {
+      // Pour un carrée, les pièces sont placées selon ceci:
+      blocActifY[0] = 0 + positionY;
+      blocActifY[1] = 0 + positionY;
+      blocActifY[2] = 1 + positionY;
+      blocActifY[3] = 1 + positionY;
+
+      blocActifX[0] = 0 + positionX;
+      blocActifX[1] = 1 + positionX;
+      blocActifX[2] = 0 + positionX;
+      blocActifX[3] = 1 + positionX;
+
+      TypeBloc type = TypeBloc.Carre;
+
+      AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
+
+    }
+
+    // Fonction qui crée un L:
+    void AfficherL(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    {
+      // Pour un L, les pièces sont placées selon ceci:
+      blocActifY[0] = 0;
+      blocActifY[1] = 1;
+      blocActifY[2] = 2;
+      blocActifY[3] = 2;
+
+      blocActifX[0] = 0;
+      blocActifX[1] = 0;
+      blocActifX[2] = 0;
+      blocActifX[3] = 1;
+
+      TypeBloc type = TypeBloc.L;
+
+      AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
+    }
+
+    //Fonction qui assigne les types de départ:
+    void AssignerTypes(int[] blocActifY, int[] blocActifX, int positionY, int positionX, TypeBloc type)
+    {
+      for (int i = 0; i < blocActifY.Length; i++)
+      {
+        tableauDeType[blocActifY[i], blocActifX[i]] = type;
+        toutesImagesVisuelles[blocActifY[i]+positionY, blocActifX[i]+positionX].BackColor = toutesLesCouleurs[(int)type];
+      }
+    }
+    
     #endregion
 
     #region Anthony Sirois
