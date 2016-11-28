@@ -83,7 +83,13 @@ namespace TP3
     }
     #endregion
 
+    #region Samuel Masson
 
+    #endregion
+
+    #region Anthony Sirois
+
+    #endregion
 
 
     #region Tests Unitaires
