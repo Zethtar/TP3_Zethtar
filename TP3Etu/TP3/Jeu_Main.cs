@@ -36,12 +36,12 @@ namespace TP3
     {
       Color.Black,
       Color.Azure,
-      Color.Green,
+      Color.Green, // Carre
       Color.Orange,
       Color.Navy,
       Color.Red,
       Color.Peru, // "L"
-      Color.Pink,
+      Color.YellowGreen, // "S"
       Color.PeachPuff
     };
 
@@ -112,7 +112,7 @@ namespace TP3
         }
       }
       // Test des formes **À CHANGER**
-      AfficherCaree(blocActifY, blocActifX, colonneCourante, ligneCourante);
+      AfficherS(blocActifY, blocActifX, colonneCourante, ligneCourante);
     }
     #endregion
 
@@ -120,24 +120,23 @@ namespace TP3
     
 
     #region Samuel Masson
-    // Fonction qui crée un carrée:
-    void AfficherCaree(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    // Fonction qui crée un carré:
+    void AfficherCarre(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
     {
-      // Pour un carrée, les pièces sont placées selon ceci:
-      blocActifY[0] = 0 + positionY;
-      blocActifY[1] = 0 + positionY;
-      blocActifY[2] = 1 + positionY;
-      blocActifY[3] = 1 + positionY;
+      // Pour un carré, les pièces sont placées selon ceci:
+      blocActifY[0] = 0;
+      blocActifY[1] = 0;
+      blocActifY[2] = 1;
+      blocActifY[3] = 1;
 
-      blocActifX[0] = 0 + positionX;
-      blocActifX[1] = 1 + positionX;
-      blocActifX[2] = 0 + positionX;
-      blocActifX[3] = 1 + positionX;
+      blocActifX[0] = 0;
+      blocActifX[1] = 1;
+      blocActifX[2] = 0;
+      blocActifX[3] = 1;
 
       TypeBloc type = TypeBloc.Carre;
 
       AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
-
     }
 
     // Fonction qui crée un L:
@@ -159,6 +158,44 @@ namespace TP3
       AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
     }
 
+    // Fonction qui crée un S:
+    void AfficherS(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    {
+      // Pour un S, les pièces sont placées selon ceci:
+      blocActifY[0] = 0;
+      blocActifY[1] = 1;
+      blocActifY[2] = 1;
+      blocActifY[3] = 2;
+
+      blocActifX[0] = 0;
+      blocActifX[1] = 0;
+      blocActifX[2] = 1;
+      blocActifX[3] = 1;
+
+      TypeBloc type = TypeBloc.S;
+
+      AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
+    }
+
+    // Fonction qui crée un T:
+    void AfficherT(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    {
+      // Pour un T, les pièces sont placées selon ceci:
+      blocActifY[0] = 0;
+      blocActifY[1] = 1;
+      blocActifY[2] = 1;
+      blocActifY[3] = 2;
+
+      blocActifX[0] = 0;
+      blocActifX[1] = 0;
+      blocActifX[2] = 1;
+      blocActifX[3] = 1;
+
+      TypeBloc type = TypeBloc.S;
+
+      AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
+    }
+
     //Fonction qui assigne les types de départ:
     void AssignerTypes(int[] blocActifY, int[] blocActifX, int positionY, int positionX, TypeBloc type)
     {
@@ -169,6 +206,7 @@ namespace TP3
       }
     }
     
+
     #endregion
 
     #region Anthony Sirois
