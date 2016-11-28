@@ -10,3 +10,6 @@ C:\Users\Samuel Masson\Desktop\Programmation de Jeux Vidéos\Semaine 14\TP3\TP3E
 C:\Users\Anthony\TP3_Zethtar\TP3Etu\TP3\bin\Debug\TP3.exe.config
 C:\Users\Anthony\TP3_Zethtar\TP3Etu\TP3\obj\Debug\TP3.exe
 C:\Users\Anthony\TP3_Zethtar\TP3Etu\TP3\obj\Debug\TP3.pdb
+C:\Users\Samuel Masson\Desktop\TP3_Zethtar\TP3Etu\TP3\bin\Debug\TP3.exe.config
+C:\Users\Samuel Masson\Desktop\TP3_Zethtar\TP3Etu\TP3\obj\Debug\TP3.exe
+C:\Users\Samuel Masson\Desktop\TP3_Zethtar\TP3Etu\TP3\obj\Debug\TP3.pdb
