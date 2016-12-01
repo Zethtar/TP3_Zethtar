@@ -210,39 +210,42 @@ namespace TP3
 
     void DeplacerBloc(SensDeplacement sens)
     {
-      switch (sens)
-      {
-        case SensDeplacement.Gauche:
-          colonneCourante -= 1;
-          break;
+    if (BlocPeutBouger(SaisirDeplacementJoueur()))
+    {
+        switch (sens)
+        {
+          case SensDeplacement.Gauche:
+            colonneCourante -= 1;
+            break;
 
-        case SensDeplacement.Droite:
-          colonneCourante += 1;
-          break;
+          case SensDeplacement.Droite:
+            colonneCourante += 1;
+            break;
 
-        case SensDeplacement.Bas:
-          ligneCourante += 1;
-          break;
+          case SensDeplacement.Bas:
+            ligneCourante += 1;
+            break;
 
-        case SensDeplacement.RotationAntihoraire:
-          for (int i = 0; i < blocActifY.Length; i++)
-          {
-            blocActifX[i] = blocActifY[i];
-            blocActifY[i] = -blocActifX[i];
-          }
-          break;
+          case SensDeplacement.RotationAntihoraire:
+            for (int i = 0; i < blocActifY.Length; i++)
+            {
+              blocActifX[i] = blocActifY[i];
+              blocActifY[i] = -blocActifX[i];
+            }
+            break;
 
-        case SensDeplacement.RotationHoraire:
-          for (int i = 0; i < blocActifY.Length; i++)
-          {
-            blocActifX[i] = -blocActifY[i];
-            blocActifY[i] = blocActifX[i];
-          }
-          break;
+          case SensDeplacement.RotationHoraire:
+            for (int i = 0; i < blocActifY.Length; i++)
+            {
+              blocActifX[i] = -blocActifY[i];
+              blocActifY[i] = blocActifX[i];
+            }
+            break;
 
-        default:
-          ligneCourante += 1;
-          break;
+          default:
+            ligneCourante += 1;
+            break;
+        }
       }
     }
 
@@ -259,7 +262,21 @@ namespace TP3
         }
       }
     }
+
+    void DescendreBlocChaqueSeconde()
+    {
+      Timer timerRefresh = new Timer();
+      timerRefresh.Tick += new EventHandler(timerRefresh_Tick);
+      timerRefresh.Interval = 1000;
+      timerRefresh.Start();
+    }
+
     #endregion
+
+    private void timerRefresh_Tick(object sender, EventArgs e)
+    {
+      DeplacerBloc(SensDeplacement.Bas);
+    }
   }
 
 
