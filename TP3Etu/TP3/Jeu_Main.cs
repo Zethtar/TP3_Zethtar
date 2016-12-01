@@ -249,6 +249,20 @@ namespace TP3
       }
     }
 
+    bool DetecterFinDePartie()
+    {
+      bool partieEstTerminee = false;
+
+      for (int i = 0; i < 4; i++)
+      {
+        if (tableauDeType[blocActifY[i], blocActifX[i]+colonneCourante] != TypeBloc.None)
+        {
+          partieEstTerminee = true;
+        }
+      }
+      return partieEstTerminee;
+    }
+
     /// <summary>
     /// Rempli le tableau de TypeBloc.None
     /// </summary>
