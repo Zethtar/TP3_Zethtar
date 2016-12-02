@@ -29,8 +29,13 @@ namespace TP3
       Droite,
       Bas,
       RotationHoraire,
-      RotationAntihoraire
+      RotationAntihoraire,
+      Saut,
+      None
     }
+    //None: juste pour le default
+    //Saut : Descent le plus bas possible
+    //RotationHoraire pas encore implanté; manque le bouton
 
     TypeBloc[,] tableauDeType = new TypeBloc[NB_LIGNE, NB_COLONNE];
 
@@ -125,6 +130,10 @@ namespace TP3
 
     #region Anthony Sirois
 
+    /// <summary>
+    /// Lis le mouvement que le joueur veut effectuer
+    /// </summary>
+    /// <returns>Retourne le sens de deplacement (Type: SensDeplacement)</returns>
     SensDeplacement SaisirDeplacementJoueur()
     {
       ConsoleKey inputDuJoueur = Console.ReadKey().Key;
@@ -146,11 +155,19 @@ namespace TP3
         //case ConsoleKey. :
         //  return SensDeplacement.RotationHoraire;
 
+        case ConsoleKey.Spacebar:
+          return SensDeplacement.Saut;
+
         default:
-          return SensDeplacement.Bas;
+          return SensDeplacement.None;
       }
     }
 
+    /// <summary>
+    /// Détermine si le bloc peut bouger; si il y a un bloc qui limite son mouvement ou qu'il est à la limite du tableau de jeu
+    /// </summary>
+    /// <param name="sens">Sens du déplacement du joueur déterminé par la fonction SaisirDeplacementJoueur</param>
+    /// <returns>Retourne un booléen (vrai si le joueur peut bouger)</returns>
     bool BlocPeutBouger(SensDeplacement sens)
     {
       bool blocPeutBouger = true;
@@ -208,6 +225,10 @@ namespace TP3
       return blocPeutBouger;
     }
 
+    /// <summary>
+    /// Déplace le bloc dans le tableau dans la direction que le joueur veut
+    /// </summary>
+    /// <param name="sens">Sens du déplacement du joueur déterminé par la fonction SaisirDeplacementJoueur</param>
     void DeplacerBloc(SensDeplacement sens)
     {
     if (BlocPeutBouger(SaisirDeplacementJoueur()))
@@ -249,6 +270,10 @@ namespace TP3
       }
     }
 
+    /// <summary>
+    /// Analyse s'il y a un bloc à l'emplacement du prochain bloc
+    /// </summary>
+    /// <returns>Booléen qui est vrai si la partie est terminé sinon il est faux</returns>
     bool DetecterFinDePartie()
     {
       bool partieEstTerminee = false;
@@ -277,7 +302,10 @@ namespace TP3
       }
     }
 
-    void DescendreBlocChaqueSeconde()
+    /// <summary>
+    /// Actionne le compteur et spécifi ses conditions
+    /// </summary>
+    void ActiverDescenteAutomatique()
     {
       Timer timerRefresh = new Timer();
       timerRefresh.Tick += new EventHandler(timerRefresh_Tick);
