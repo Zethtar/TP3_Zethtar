@@ -31,6 +31,14 @@
       this.components = new System.ComponentModel.Container();
       this.tableauDeJeu = new System.Windows.Forms.TableLayoutPanel();
       this.timerRefresh = new System.Windows.Forms.Timer(this.components);
+      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.interfaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.audioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // tableauDeJeu
@@ -55,7 +63,7 @@
       this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+      this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
       this.tableauDeJeu.Location = new System.Drawing.Point(173, 42);
       this.tableauDeJeu.Margin = new System.Windows.Forms.Padding(0);
       this.tableauDeJeu.Name = "tableauDeJeu";
@@ -97,17 +105,72 @@
       // 
       this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
       // 
+      // menuStrip1
+      // 
+      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem,
+            this.optionsToolStripMenuItem,
+            this.interfaceToolStripMenuItem,
+            this.audioToolStripMenuItem});
+      this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+      this.menuStrip1.Name = "menuStrip1";
+      this.menuStrip1.Size = new System.Drawing.Size(578, 24);
+      this.menuStrip1.TabIndex = 2;
+      this.menuStrip1.Text = "menuStrip1";
+      // 
+      // menuToolStripMenuItem
+      // 
+      this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quitterToolStripMenuItem});
+      this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+      this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+      this.menuToolStripMenuItem.Text = "Menu";
+      // 
+      // optionsToolStripMenuItem
+      // 
+      this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+      this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+      this.optionsToolStripMenuItem.Text = "Options";
+      // 
+      // interfaceToolStripMenuItem
+      // 
+      this.interfaceToolStripMenuItem.Name = "interfaceToolStripMenuItem";
+      this.interfaceToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+      this.interfaceToolStripMenuItem.Text = "Interface";
+      // 
+      // audioToolStripMenuItem
+      // 
+      this.audioToolStripMenuItem.Name = "audioToolStripMenuItem";
+      this.audioToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+      this.audioToolStripMenuItem.Text = "Audio";
+      // 
+      // contextMenuStrip1
+      // 
+      this.contextMenuStrip1.Name = "contextMenuStrip1";
+      this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+      // 
+      // quitterToolStripMenuItem
+      // 
+      this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+      this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.quitterToolStripMenuItem.Text = "Quitter";
+      // 
       // frm_Jeu_Main
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(578, 589);
       this.Controls.Add(this.tableauDeJeu);
+      this.Controls.Add(this.menuStrip1);
       this.KeyPreview = true;
+      this.MainMenuStrip = this.menuStrip1;
       this.Name = "frm_Jeu_Main";
       this.Text = "Tetris";
       this.Load += new System.EventHandler(this.frmLoad);
+      this.menuStrip1.ResumeLayout(false);
+      this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
+      this.PerformLayout();
 
     }
 
@@ -115,6 +178,13 @@
 
     private System.Windows.Forms.TableLayoutPanel tableauDeJeu;
     private System.Windows.Forms.Timer timerRefresh;
+    private System.Windows.Forms.MenuStrip menuStrip1;
+    private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem interfaceToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem audioToolStripMenuItem;
+    private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
   }
 }
 

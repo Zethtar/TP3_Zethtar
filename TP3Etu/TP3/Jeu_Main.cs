@@ -45,6 +45,20 @@ namespace TP3
     int ligneCourante = 0;
     int colonneCourante = 0;
 
+    Color[] toutesLesCouleurs = new Color[9]
+{
+      Color.Black,
+      Color.Azure,
+      Color.Green, // Carre
+      Color.Orange,
+      Color.Navy,
+      Color.Red,
+      Color.Peru, // "L"
+      Color.YellowGreen, // "S"
+      Color.PeachPuff
+};
+
+
     public frm_Jeu_Main( )
     {
       InitializeComponent( );
@@ -65,7 +79,7 @@ namespace TP3
     {
       // Ne pas oublier de mettre en place les valeurs nécessaires à une partie.
       ExecuterTestsUnitaires();
-      InitialiserSurfaceDeJeu(20,10);
+      InitialiserSurfaceDeJeu(NB_LIGNE, NB_COLONNE);
       InitialiserTableau();
 
       //CHANGE
@@ -127,6 +141,96 @@ namespace TP3
       // Validation des résultats
       
       // Clean-up
+    }
+
+    #endregion
+
+    #region Samuel Masson
+
+    // Fonction qui crée un carré:
+    void AfficherCarre(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    {
+      // Pour un carré, les pièces sont placées selon ceci:
+      blocActifY[0] = 0;
+      blocActifY[1] = 0;
+      blocActifY[2] = 1;
+      blocActifY[3] = 1;
+
+      blocActifX[0] = 0;
+      blocActifX[1] = 1;
+      blocActifX[2] = 0;
+      blocActifX[3] = 1;
+
+      TypeBloc type = TypeBloc.Carre;
+
+      AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
+    }
+
+    // Fonction qui crée un L:
+    void AfficherL(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    {
+      // Pour un L, les pièces sont placées selon ceci:
+      blocActifY[0] = 0;
+      blocActifY[1] = 1;
+      blocActifY[2] = 2;
+      blocActifY[3] = 2;
+
+      blocActifX[0] = 0;
+      blocActifX[1] = 0;
+      blocActifX[2] = 0;
+      blocActifX[3] = 1;
+
+      TypeBloc type = TypeBloc.L;
+
+      AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
+    }
+
+    // Fonction qui crée un S:
+    void AfficherS(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    {
+      // Pour un S, les pièces sont placées selon ceci:
+      blocActifY[0] = 0;
+      blocActifY[1] = 1;
+      blocActifY[2] = 1;
+      blocActifY[3] = 2;
+
+      blocActifX[0] = 0;
+      blocActifX[1] = 0;
+      blocActifX[2] = 1;
+      blocActifX[3] = 1;
+
+      TypeBloc type = TypeBloc.S;
+
+      AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
+    }
+
+    // Fonction qui crée un T:
+    void AfficherT(int[] blocActifY, int[] blocActifX, int positionY, int positionX)
+    {
+      // Pour un T, les pièces sont placées selon ceci:
+      blocActifY[0] = 0;
+      blocActifY[1] = 1;
+      blocActifY[2] = 1;
+      blocActifY[3] = 2;
+
+      blocActifX[0] = 0;
+      blocActifX[1] = 0;
+      blocActifX[2] = 1;
+      blocActifX[3] = 1;
+
+      TypeBloc type = TypeBloc.S;
+
+      AssignerTypes(blocActifY, blocActifX, positionY, positionX, type);
+    }
+
+    //Fonction qui assigne les types de départ:
+    void AssignerTypes(int[] blocActifY, int[] blocActifX, int positionY, int positionX, TypeBloc type)
+    {
+      for (int i = 0; i < blocActifY.Length; i++)
+      {
+        tableauDeType[blocActifY[i], blocActifX[i]] = type;
+        toutesImagesVisuelles[blocActifY[i] + positionY, blocActifX[i] + positionX].BackColor = toutesLesCouleurs[(int)type];
+      }
     }
 
     #endregion
