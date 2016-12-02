@@ -28,7 +28,9 @@
     /// </summary>
     private void InitializeComponent( )
     {
+      this.components = new System.ComponentModel.Container();
       this.tableauDeJeu = new System.Windows.Forms.TableLayoutPanel();
+      this.timerRefresh = new System.Windows.Forms.Timer(this.components);
       this.SuspendLayout();
       // 
       // tableauDeJeu
@@ -53,7 +55,7 @@
       this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
       this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+      this.tableauDeJeu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
       this.tableauDeJeu.Location = new System.Drawing.Point(173, 42);
       this.tableauDeJeu.Margin = new System.Windows.Forms.Padding(0);
       this.tableauDeJeu.Name = "tableauDeJeu";
@@ -91,6 +93,10 @@
       this.tableauDeJeu.Size = new System.Drawing.Size(222, 441);
       this.tableauDeJeu.TabIndex = 1;
       // 
+      // timerRefresh
+      // 
+      this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
+      // 
       // frm_Jeu_Main
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +114,7 @@
     #endregion
 
     private System.Windows.Forms.TableLayoutPanel tableauDeJeu;
+    private System.Windows.Forms.Timer timerRefresh;
   }
 }
 
