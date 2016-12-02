@@ -67,6 +67,9 @@ namespace TP3
       ExecuterTestsUnitaires();
       InitialiserSurfaceDeJeu(20,10);
       InitialiserTableau();
+
+      //CHANGE
+      AfficherFinDePartie();
     }
 
     private void InitialiserSurfaceDeJeu(int nbLignes, int nbCols)
