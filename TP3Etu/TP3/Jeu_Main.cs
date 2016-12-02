@@ -289,6 +289,24 @@ namespace TP3
     }
 
     /// <summary>
+    /// Affiche une message box annonçant la fin de partie et lorsque le joueur appuie sur OK
+    /// les statistiques apparaissent
+    /// </summary>
+    void AfficherFinDePartie()
+    {
+      DialogResult result = MessageBox.Show("La partie est terminée",
+                      "Fin de partie",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Exclamation);
+      if (result == DialogResult.OK)
+      {
+        Statistique statistique = new Statistique();
+        statistique.ShowDialog();
+      }
+    }
+
+
+    /// <summary>
     /// Rempli le tableau de TypeBloc.None
     /// </summary>
     void InitialiserTableau()
